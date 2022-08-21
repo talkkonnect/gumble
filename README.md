@@ -21,8 +21,8 @@ gumble is a [Mumble](https://mumble.info/) client implementation in Go
 package main
 
 import (
-  "layeh.com/gumble/gumble"
-  "layeh.com/gumble/gumbleutil"
+  "github.com/talkkonnect/gumble/gumble"
+  "github.com/talkkonnect/gumble/gumbleutil"
 )
 
 func main() {
@@ -36,17 +36,14 @@ func main() {
 }
 ```
 
-## Related projects
+## Modified By Suvir
 
-- [barnard](https://layeh.com/barnard)
-    - terminal-based Mumble client
-- [piepan](https://layeh.com/piepan)
-    - an easy to use framework for writing Mumble bots using Lua
+- Ran Generate to add channel listener features to gumble
 
 ## License
 
 MPL 2.0
 
-## Author
+## Original Author
 
 Tim Cooper (<tim.cooper@layeh.com>)
