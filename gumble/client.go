@@ -31,7 +31,7 @@ const (
 )
 
 // ClientVersion is the protocol version that Client implements.
-const ClientVersion = 1<<16 | 3<<8 | 0
+const ClientVersion = 1<<16 | 4<<8 | 0
 
 // Client is the type used to create a connection to a server.
 type Client struct {
