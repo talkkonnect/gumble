@@ -44,6 +44,12 @@ type User struct {
 	// The user's texture hash. nil if User.Texture has been populated.
 	TextureHash []byte
 
+	//Add the channels user wants to listen to
+	ListeningChannelAdd uint32
+
+	//Remove the channels user wants to listen to
+	ListeningChannelRemove uint32
+
 	// The user's stats. Contains nil if the stats have not yet been requested.
 	Stats *UserStats
 
@@ -74,6 +80,24 @@ func (u *User) SetRecording(recording bool) {
 	packet := MumbleProto.UserState{
 		Session:   &u.Session,
 		Recording: &recording,
+	}
+	u.client.Conn.WriteProto(&packet)
+}
+
+// AddListeningChannel
+func (u *User) AddListeningChannel(listeningchannel []uint32) {
+	packet := MumbleProto.UserState{
+		Session:   &u.Session,
+		ListeningChannelAdd: listeningchannel,
+	}
+	u.client.Conn.WriteProto(&packet)
+}
+
+// RemoveListeningChannel
+func (u *User) RemoveListeningChannel(listeningchannel []uint32) {
+	packet := MumbleProto.UserState{
+		Session:   &u.Session,
+		ListeningChannelRemove: listeningchannel,
 	}
 	u.client.Conn.WriteProto(&packet)
 }
